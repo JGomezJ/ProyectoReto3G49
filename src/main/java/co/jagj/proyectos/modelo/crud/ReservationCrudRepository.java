@@ -17,6 +17,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Component
-public interface ReservationCrudRepository extends CrudRepository<Reservation, Integer> {
+public interface ReservationCrudRepository extends CrudRepository<Reservation, Integer> {    
     public List<Reservation> findAll();
 }

@@ -21,10 +21,13 @@ public class ReservationServicio {
     ReservationCrudRepository reservationRepo;
     
     public void guardarReserva(Reservation res){
+        if (res.getScore()==null) { 
+            //res.setScore();
+        }
         reservationRepo.save(res);
     }
     
-    public List<Reservation> buscarTodo(){
+    public List<Reservation> buscarTodo(){        
         return (List<Reservation>)reservationRepo.findAll();
     }
 }

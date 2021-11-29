@@ -6,6 +6,9 @@
 package co.jagj.proyectos.modelo.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.Nulls;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -21,6 +24,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicUpdate;
 
 /**
  *
@@ -32,6 +36,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Table(name = "Reservation")
 @Data
 @JsonIgnoreProperties({ "creationDate" })
+@DynamicUpdate
 public class Reservation implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,7 +72,8 @@ public class Reservation implements Serializable {
     private Client client;    
     
     @ManyToOne
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties("reservations")   
+    @JsonSetter(nulls=Nulls.AS_EMPTY)
     private Score score;
     
 }
