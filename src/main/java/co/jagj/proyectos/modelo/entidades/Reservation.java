@@ -55,7 +55,7 @@ public class Reservation implements Serializable {
     private Date devolutionDate;
     
     // Default Value
-    @Column(name = "status", nullable = false, updatable = false, insertable = false, columnDefinition = "varchar(7) default 'Created'")
+    @Column(name = "status", nullable = false, updatable = false, insertable = false, columnDefinition = "varchar(7) default 'created'")
     private String status;
     
     @ManyToOne 
