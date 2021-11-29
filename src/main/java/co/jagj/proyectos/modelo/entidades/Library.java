@@ -37,54 +37,55 @@ public class Library implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)    
     @Column(name= "IdBiblioteca", nullable = false)
-    /*
-    idLibrary
-    */
+    /**
+     * 
+     * idLibrary
+     */
     private int id;
         
     @Column(length = 45, name= "NombreBiblioteca", nullable = false)
-    /*
-    nameLibrary
-    */
+    /**
+     * nameLibrary
+     */   
     private String name;
         
     @Column(length = 45, name= "ObjetivoUso", nullable = false)
-    /*
-    targetLibrary
-    */
+    /**
+     * targetLibrary
+     */
     private String target;
     
     @Column(name= "Capacidad", nullable = false)
-    /*
-    capacityLibrary
-    */
+    /**
+     * capacityLibrary
+     */
     private int capacity; 
     
     @Column(length = 250, name= "Descripcion", nullable = false)
-    /*
-    descriptionLibrary
-    */
+    /**
+     * descriptionLibrary
+     */
     private String description;
         
     @ManyToOne
     @JsonIgnoreProperties("libs")    
-    /*
-    categoryLibrary
-    */
+    /**
+     * categoryLibrary
+     */
     private Category category;
         
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "lib")
     @JsonIgnoreProperties({"lib", "client"}) 
-    /*
-    messagesLibrary
-    */
+    /**
+     * messagesLibrary
+     */
     List<Message> messages;
     
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "lib")
     @JsonIgnoreProperties({"lib", "client" }) 
-    /*
-    reservationsLibrary
-    */
+    /**
+     * reservationsLibrary
+     */
     List<Reservation> reservations;   
     
 }
